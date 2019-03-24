@@ -1,6 +1,6 @@
-# password-generator
+# vue-nuxt-password-generator-app
 
-> Simple Password Generator
+> A Simple and Secure Strong Password Generator
 
 ## Build Setup
 
