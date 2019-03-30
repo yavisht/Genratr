@@ -1,12 +1,25 @@
 <template>
   <div>
+    <b-row class="text-center">
+      
+      <b-col>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 6v12h24v-12h-24zm22 10h-20v-8h20v8zm-14.812-4.048l-.217-.619-.658.25v-.708h-.643v.706l-.641-.249-.217.619.661.223-.422.559.537.392.397-.586.422.585.527-.392-.422-.558.676-.222zm4 0l-.217-.619-.658.25v-.708h-.643v.706l-.641-.249-.217.619.661.223-.422.559.536.392.398-.586.422.585.527-.392-.422-.558.676-.222zm4 0l-.217-.619-.658.25v-.708h-.643v.706l-.641-.249-.217.619.661.223-.422.559.536.392.398-.586.422.585.527-.392-.422-.558.676-.222zm4.812 2.048h-3v-1h3v1z"/></svg>
+        <h1>Genratr</h1>
+        <h3>A Simple and secure strong password generator.</h3>
+      </b-col>
+    </b-row>
     <b-form @submit.prevent="generatePassword(stringDB)" @reset="onReset">
-      <b-form-group id="password" label="Your Generated Password" label-for="thePassword">
-        <b-form-input
-          id="thePassword"
-          type="text"
-          v-model="form.password"
-          placeholder="Click Generate" />
+      <b-form-group id="password" label="Your Generated Password" label-for="thePassword">  
+        <b-input-group-append>
+          <b-form-input
+            class="mb=1"
+            id="thePassword"
+            type="text"
+            v-model="form.password"
+            placeholder="Click Generate" />
+          <b-button type="button" variant="secondary" @click="copyPassword">Copy</b-button>
+        </b-input-group-append>
+        <small v-if="copied">Copied!</small>
       </b-form-group>
       <b-form-group id="length" label="Desired Password Length" label-for="theLength">
         <small>{{length}}</small>
@@ -17,17 +30,16 @@
             min="6"
             max="48"/>
       </b-form-group>
-      <b-form-group label="Using options array:">
+      <b-form-group label="Choose your Password Options">
         <b-form-checkbox-group
-          id="checkboxes1"
-          name="flavour1"
+          id="thePwOptions"
+          name="pwOptions"
           v-model="selected"
           :options="pwOptions"
         />
-    </b-form-group>
+      </b-form-group>
       <b-button type="submit" variant="primary">Generate</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
-      <b-button type="button" variant="secondary" @click="copyPassword">Copy to Clipboard</b-button>
     </b-form>
   </div>
 </template>
@@ -38,6 +50,7 @@ import _ from 'lodash'
     data() {
       return {
         length : '10',
+        copied: false,
         form: {
           password:''
         },
@@ -62,6 +75,7 @@ import _ from 'lodash'
     },
     methods: {
       generatePassword(str) {
+        this.copied = false;
         if(this.length > str.length ){
           // Giving it more characters to choose from than then length
           str = _.repeat(str.join(''), (Math.round(this.length / str.length) + 2) )
@@ -74,7 +88,8 @@ import _ from 'lodash'
         var pass = document.getElementById("thePassword");
         pass.select();
         document.execCommand("copy");
-        alert('Copied to clipboard')
+        this.copied = true;
+        //alert('Copied to clipboard')
       },
       onReset(evt) {
         evt.preventDefault()
@@ -85,3 +100,16 @@ import _ from 'lodash'
     }
   }
 </script>
+<style>
+  svg{
+    margin-top:30px;
+    width: 20%;
+  }
+  h3{
+    font-size: 1.55rem;
+    margin-bottom:30px;
+  }
+  button{
+    margin-bottom:15px;
+  }
+</style>
