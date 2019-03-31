@@ -1,4 +1,4 @@
-# vue-nuxt-password-generator-app
+# Genratr
 
 > A Simple and Secure Strong Password Generator
 
