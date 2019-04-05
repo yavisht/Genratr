@@ -2,6 +2,7 @@
 # Genratr
 
 > A Simple and Secure Strong Password Generator
+<img width="613" alt="Genratr" src="https://user-images.githubusercontent.com/6112201/55602801-15527a00-57b3-11e9-88df-6913fcf001b8.png">
 
 ## Build Setup
 
