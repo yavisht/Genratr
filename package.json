@@ -1,7 +1,7 @@
 {
-  "name": "vue-nuxt-password-generator-app",
+  "name": "genratr",
   "version": "1.0.0",
-  "description": "Simple and Secure Password Generator",
+  "description": "A simple and secure strong password generator",
   "author": "Yavisht Katgara",
   "private": true,
   "scripts": {
@@ -14,9 +14,7 @@
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
     "bootstrap-vue": "^2.0.0-rc.11",
-    "bootstrap": "^4.1.3",
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^2.6.0"
+    "bootstrap": "^4.1.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
