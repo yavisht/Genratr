@@ -31,7 +31,7 @@
         label="Reset"
       />
       <div class="footer text-center">
-        <p>Maintained by  <a href="https://www.github.com/yavisht/">Yavisht Katgara</a></p>
+        <p>An open source project by  <a href="https://www.github.com/yavisht/">Yavisht Katgara</a></p>
       </div>
     </div>
   </q-page>
