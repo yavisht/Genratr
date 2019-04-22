@@ -7,24 +7,24 @@
         <h3>A simple and secure strong password generator</h3>
       </div>
       <q-field :helper="pwHelperText">
-        <q-input ref="password" v-model="password" readonly/>
+        <q-input @click="copyPassword()" ref="password" v-model="password" readonly/>
       </q-field>
       <q-field icon="security" label="Length" helper="Choose a password length">
         <q-slider
           v-model="length"
           :min="9"
-          :max="27"
+          :max="54"
           label-always
         />
       </q-field>
       <q-field icon="lock" label="Password Options" helper="Customoise your password">
         <q-option-group type="toggle" v-model="selected" :options="pwOptions"/>
       </q-field>
-      <q-btn
+      <!-- <q-btn
         color="primary"
         @click="copyPassword()"
         label="Copy"
-      />
+      /> -->
       <q-btn
         color="secondary"
         @click="onReset()"
@@ -61,7 +61,7 @@ export default {
       password: '',
       selected: [],
       pwOptions: [
-        { label: 'Special characters', value: '!@#$%^&*()_+{}:"<>?|[];,./`~' },
+        { label: 'Special characters', value: '!@#$%^&*()_+{}:"\'<>?|[];,./`~' },
         { label: 'Lowercase characters', value: 'abcdefghijklmnopqrstuvwxyz' },
         { label: 'Uppercase characters', value: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' },
         { label: 'Numbers', value: '0123456789' }
@@ -77,6 +77,7 @@ export default {
       let fullLengthPass = _.shuffle(str)
       let shortPass = fullLengthPass.slice(0, this.length)
       this.password = shortPass.join('')
+      this.pwHelperText = 'Your generated password will appear here'
     },
     copyPassword () {
       this.$refs.password.select()
@@ -87,7 +88,6 @@ export default {
       this.password = ''
       this.selected = []
       this.length = 12
-      this.pwHelperText = 'Your generated password will appear here'
     }
   }
 }
@@ -98,7 +98,7 @@ export default {
     word-wrap: break-word;
   }
   .page__wrap{
-    max-width: 768px;
+    max-width: 540px;
     position:relative;
     margin:0 auto;
   }

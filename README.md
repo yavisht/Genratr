@@ -8,11 +8,7 @@
 v2 is a complete rewrite using Quasar Framework. 
 
 This will allow Generatr to be ported to:
-<<<<<<< HEAD
- - Static Site (http://www.genratr.com/)
-=======
  - Static Site (https://www.genratr.com/)
->>>>>>> 94870996a945760b1c17affb7317178f1e9c21a3
  - Android App
  - iOS App
  - Desktop App
