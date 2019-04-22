@@ -17,7 +17,7 @@
           label-always
         />
       </q-field>
-      <q-field icon="lock" label="Password Options" helper="Customoise your password">
+      <q-field icon="lock" label="Password Options" helper="Customise your password">
         <q-option-group type="toggle" v-model="selected" :options="pwOptions"/>
       </q-field>
       <!-- <q-btn
@@ -30,6 +30,9 @@
         @click="onReset()"
         label="Reset"
       />
+      <div class="footer text-center">
+        <p>Maintained by  <a href="https://www.github.com/yavisht/">Yavisht Katgara</a></p>
+      </div>
     </div>
   </q-page>
 </template>
@@ -125,5 +128,12 @@ export default {
   }
   button:first-of-type{
     margin-right:15px;
+  }
+  .footer{
+    padding:30px 0 0 0;
+  }
+  .footer p{
+    font-size:10px;
+    color:#222;
   }
 </style>
