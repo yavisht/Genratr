@@ -1,8 +1,7 @@
-
 # Genratr
 
 > A simple and secure strong password generator
-<img width="613" alt="Genratr" src="https://user-images.githubusercontent.com/6112201/55602801-15527a00-57b3-11e9-88df-6913fcf001b8.png">
+<!-- <img width="613" alt="Genratr" src="https://user-images.githubusercontent.com/6112201/55602801-15527a00-57b3-11e9-88df-6913fcf001b8.png"> -->
 
 ## Official website
 
@@ -14,18 +13,14 @@
 # install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+# serve with hot reload at localhost:8080
+$ quasar dev
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
+# build for production
+$ quasar build
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on how things work, checkout [Quasar - Getting Started](https://quasar-framework.org/guide/).
 
 ### Browser and device testing sponsor
 
