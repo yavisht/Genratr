@@ -1,7 +1,7 @@
 # Genratr
 
 > A simple and secure strong password generator
-<!-- <img width="613" alt="Genratr" src="https://user-images.githubusercontent.com/6112201/55602801-15527a00-57b3-11e9-88df-6913fcf001b8.png"> -->
+<img width="746" alt="Screen Shot 2019-04-22 at 1 08 56 pm" src="https://user-images.githubusercontent.com/6112201/56480967-e7ce3600-64ff-11e9-8014-f4bb9bcb4428.png">
 
 ## Whats new?
 
