@@ -26,7 +26,7 @@
         label="Copy"
       /> -->
       <q-btn
-        color="secondary"
+        color="red"
         @click="onReset()"
         label="Reset"
       />
