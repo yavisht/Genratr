@@ -85,7 +85,7 @@ export default {
     copyPassword () {
       this.$refs.password.select()
       document.execCommand('copy')
-      this.pwHelperText = 'Copied to clipbord!'
+      this.pwHelperText = 'Copied to clipboard!'
     },
     onReset () {
       this.password = ''
