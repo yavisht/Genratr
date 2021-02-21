@@ -20,11 +20,6 @@
       <q-field icon="lock" label="Password Options" helper="Customise your password">
         <q-option-group type="toggle" v-model="selected" :options="pwOptions"/>
       </q-field>
-      <!-- <q-btn
-        color="primary"
-        @click="copyPassword()"
-        label="Copy"
-      /> -->
       <q-btn
         color="red"
         @click="onReset()"
@@ -40,6 +35,12 @@
 import _ from 'lodash'
 export default {
   name: 'PageIndex',
+  mounted () {
+    // select all options by default
+    this.pwOptions.forEach((o) => {
+      this.selected.push(o.value)
+    })
+  },
   watch: {
     length () {
       this.generatePassword(this.stringDB)
@@ -60,7 +61,7 @@ export default {
   },
   data () {
     return {
-      length: 12,
+      length: 18,
       password: '',
       selected: [],
       pwOptions: [
@@ -80,7 +81,6 @@ export default {
       let fullLengthPass = _.shuffle(str)
       let shortPass = fullLengthPass.slice(0, this.length)
       this.password = shortPass.join('')
-      this.pwHelperText = 'Your generated password will appear here'
     },
     copyPassword () {
       this.$refs.password.select()
