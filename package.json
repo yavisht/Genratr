@@ -1,36 +1,46 @@
 {
-  "name": "genratr-q",
-  "version": "0.0.1",
+  "name": "genratr",
+  "version": "3.0.0",
   "description": "A simple and secure strong password generator",
   "productName": "Genratr",
-  "cordovaId": "au.com.ykat.genratr",
-  "author": "Yavisht Katgara <yavisht@ykat.com.au>",
+  "author": "Yavisht Katgara <yavisht.katgara@gmail.com>",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.10.0",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^5.0.0",
-    "quasar-cli": "^0.17.0",
-    "strip-ansi": "=3.0.1"
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "core-js": "^3.6.5",
+    "quasar": "^1.0.0"
   },
-  "engines": {
-    "node": ">= 8.9.0",
-    "npm": ">= 5.6.0",
-    "yarn": ">= 1.6.0"
+  "devDependencies": {
+    "@quasar/app": "^2.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.1.2"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 10"
+    "ie >= 11",
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
   ],
-  "resolutions": {
-    "ajv": "6.8.1"
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
   }
 }

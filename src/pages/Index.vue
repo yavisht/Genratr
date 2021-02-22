@@ -1,38 +1,93 @@
 <template>
   <q-page class="row-wrap page">
     <div class="page__wrap">
-      <div class="text-center">
-        <img src="~/assets/logo.svg" alt="" />
-        <h1>Genratr</h1>
-        <h3>A simple and secure strong password generator</h3>
+      <div class="header">
+        <div class="text-center">
+          <img src="~/assets/logo.svg" alt="" />
+          <h1>Genratr</h1>
+          <h3>A simple and secure strong password generator</h3>
+        </div>
       </div>
-      <q-field :helper="pwHelperText">
-        <q-input @click="copyPassword()" ref="password" v-model="password" readonly/>
-      </q-field>
-      <q-field icon="security" label="Length" helper="Choose a password length">
-        <q-slider
-          v-model="length"
-          :min="9"
-          :max="54"
-          label-always
-        />
-      </q-field>
-      <q-field icon="lock" label="Password Options" helper="Customise your password">
-        <q-option-group type="toggle" v-model="selected" :options="pwOptions"/>
-      </q-field>
-      <q-btn
-        color="red"
-        @click="onReset()"
-        label="Reset"
-      />
+      <div class="password-form">
+        <div class="row">
+          <div class="col-12">
+            <q-input class="password-field" ref="password" v-model="password" @click="copyPassword()" :type="isPwd ? 'password' : 'text'" readonly  :hint="pwHelperText">
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwd ? 'visibility_off' : 'visibility'"
+                  class="cursor-pointer"
+                  @click="isPwd = !isPwd"
+                  color="dark"
+                />
+              </template>
+            </q-input>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-4 col-md">
+                <q-icon
+                  size="md"
+                  name="straighten"
+                  color="dark"
+                />
+                Length
+              </div>
+              <div class="col-8 col-md">
+                <q-field
+                  borderless
+                  :value="length"
+                  :hint="`Longer passwords are harder to crack`"
+                >
+                  <template v-slot:control>
+                    <q-slider
+                      v-model="length"
+                      :min="9"
+                      :max="54"
+                      label
+                      label-always
+                      color="dark"
+                    />
+                  </template>
+                </q-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-4">
+                <q-icon
+                  size="md"
+                  name="tune"
+                />
+                Strength
+              </div>
+              <div class="col-8">
+                <q-field
+                  borderless
+                  :hint="`Tweak your password strength`"
+                  :value="length"
+                >
+                  <q-option-group type="toggle" v-model="selected" :options="pwOptions" color="dark" :keep-color="true" />
+                </q-field>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
       <div class="footer text-center">
-        <p>An open source project by  <a href="https://www.github.com/yavisht/">Yavisht Katgara</a></p>
+        <p>Genratr | 100% open source and free to use password generator</p>
+        <p><a href="https://www.github.com/yavisht/">Yavisht Katgara</a></p>
       </div>
     </div>
   </q-page>
 </template>
 <script>
 import _ from 'lodash'
+const pwHints = {
+  selected: 'Your generated password will appear here',
+  empty: 'No password options selected'
+}
 export default {
   name: 'PageIndex',
   mounted () {
@@ -43,15 +98,28 @@ export default {
   },
   watch: {
     length () {
-      this.generatePassword(this.stringDB)
+      if (this.selected.length !== 0) {
+        this.generatePassword(this.stringDB)
+      }
+      if (this.password.length > 0) {
+        this.pwHelperText = pwHints.selected
+      } else {
+        this.pwHelperText = pwHints.empty
+      }
     },
     selected () {
-      this.generatePassword(this.stringDB)
+      if (this.selected.length === 0) {
+        this.password = ''
+        this.pwHelperText = pwHints.empty
+      } else {
+        this.generatePassword(this.stringDB)
+        this.pwHelperText = pwHints.selected
+      }
     }
   },
   computed: {
     stringDB () {
-      let str = this.selected.join('')
+      const str = this.selected.join('')
       return str.split('')
     },
     passLen () {
@@ -70,7 +138,8 @@ export default {
         { label: 'Uppercase characters', value: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' },
         { label: 'Numbers', value: '0123456789' }
       ],
-      pwHelperText: 'Your generated password will appear here'
+      pwHelperText: pwHints.selected,
+      isPwd: true
     }
   },
   methods: {
@@ -78,11 +147,15 @@ export default {
       if (this.length > str.length) {
         str = _.repeat(str.join(''), (Math.round(this.length / str.length) + 2))
       }
-      let fullLengthPass = _.shuffle(str)
-      let shortPass = fullLengthPass.slice(0, this.length)
+      const fullLengthPass = _.shuffle(str)
+      const shortPass = fullLengthPass.slice(0, this.length)
       this.password = shortPass.join('')
     },
     copyPassword () {
+      if (this.password.length === 0) {
+        this.pwHelperText = 'No password options selected'
+        return
+      }
       this.$refs.password.select()
       document.execCommand('copy')
       this.pwHelperText = 'Copied to clipboard!'
@@ -95,45 +168,3 @@ export default {
   }
 }
 </script>
-<style>
-  .page{
-    padding:15px;
-    word-wrap: break-word;
-  }
-  .page__wrap{
-    max-width: 540px;
-    position:relative;
-    margin:0 auto;
-  }
-  img{
-    width:18%;
-  }
-  .q-field{
-    margin-bottom:30px;
-  }
-  .align-center{
-    text-align: center;
-  }
-  h1{
-    font-size: 3em;
-    margin:5px 0;
-  }
-  h3{
-    line-height:1.2;
-    margin:5px 0 45px 0;
-    font-size: 1.5em;
-  }
-  .header{
-    margin-bottom:30px;
-  }
-  button:first-of-type{
-    margin-right:15px;
-  }
-  .footer{
-    padding:30px 0 0 0;
-  }
-  .footer p{
-    font-size:10px;
-    color:#222;
-  }
-</style>
