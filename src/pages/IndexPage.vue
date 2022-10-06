@@ -11,7 +11,15 @@
       <div class="password-form">
         <div class="row">
           <div class="col-12">
-            <q-input class="password-field" ref="password" v-model="password" @click="copyPassword()" :type="isPwd ? 'password' : 'text'" readonly  :hint="pwHelperText">
+            <q-input
+              class="password-field"
+              ref="password"
+              v-model="password"
+              @click="copyPassword()"
+              :type="isPwd ? 'password' : 'text'"
+              readonly
+              :hint="pwHelperText"
+            >
               <template v-slot:append>
                 <q-icon
                   :name="isPwd ? 'visibility_off' : 'visibility'"
@@ -25,11 +33,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-4 col-md">
-                <q-icon
-                  size="md"
-                  name="straighten"
-                  color="dark"
-                />
+                <q-icon size="md" name="straighten" color="dark" />
                 Length
               </div>
               <div class="col-8 col-md">
@@ -55,10 +59,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-4">
-                <q-icon
-                  size="md"
-                  name="tune"
-                />
+                <q-icon size="md" name="tune" />
                 Strength
               </div>
               <div class="col-8">
@@ -67,12 +68,17 @@
                   :hint="`Tweak your password strength`"
                   :value="length"
                 >
-                  <q-option-group type="toggle" v-model="selected" :options="pwOptions" color="dark" :keep-color="true" />
+                  <q-option-group
+                    type="toggle"
+                    v-model="selected"
+                    :options="pwOptions"
+                    color="dark"
+                    :keep-color="true"
+                  />
                 </q-field>
               </div>
             </div>
           </div>
-
         </div>
       </div>
       <div class="footer text-center">
@@ -83,88 +89,92 @@
   </q-page>
 </template>
 <script>
-import _ from 'lodash'
+import _ from "lodash";
 const pwHints = {
-  selected: 'Your generated password will appear here',
-  empty: 'No password options selected'
-}
+  selected: "Your generated password will appear here",
+  empty: "No password options selected",
+};
 export default {
-  name: 'PageIndex',
-  mounted () {
+  name: "PageIndex",
+  mounted() {
     // select all options by default
     this.pwOptions.forEach((o) => {
-      this.selected.push(o.value)
-    })
+      this.selected.push(o.value);
+    });
+    this.generatePassword(this.stringDB);
   },
   watch: {
-    length () {
+    length() {
       if (this.selected.length !== 0) {
-        this.generatePassword(this.stringDB)
+        this.generatePassword(this.stringDB);
       }
       if (this.password.length > 0) {
-        this.pwHelperText = pwHints.selected
+        this.pwHelperText = pwHints.selected;
       } else {
-        this.pwHelperText = pwHints.empty
+        this.pwHelperText = pwHints.empty;
       }
     },
-    selected () {
+    selected() {
       if (this.selected.length === 0) {
-        this.password = ''
-        this.pwHelperText = pwHints.empty
+        this.password = "";
+        this.pwHelperText = pwHints.empty;
       } else {
-        this.generatePassword(this.stringDB)
-        this.pwHelperText = pwHints.selected
+        this.generatePassword(this.stringDB);
+        this.pwHelperText = pwHints.selected;
       }
-    }
+    },
   },
   computed: {
-    stringDB () {
-      const str = this.selected.join('')
-      return str.split('')
+    stringDB() {
+      const str = this.selected.join("");
+      return str.split("");
     },
-    passLen () {
+    passLen() {
       // to check if the password returns the correct length requested
-      return this.password.length
-    }
+      return this.password.length;
+    },
   },
-  data () {
+  data() {
     return {
       length: 18,
-      password: '',
+      password: "",
       selected: [],
       pwOptions: [
-        { label: 'Special characters', value: '!@#$%^&*()_+{}:"\'<>?|[];,./`~' },
-        { label: 'Lowercase characters', value: 'abcdefghijklmnopqrstuvwxyz' },
-        { label: 'Uppercase characters', value: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' },
-        { label: 'Numbers', value: '0123456789' }
+        {
+          label: "Special characters",
+          value: "!@#$%^&*()_+{}:\"'<>?|[];,./`~",
+        },
+        { label: "Lowercase characters", value: "abcdefghijklmnopqrstuvwxyz" },
+        { label: "Uppercase characters", value: "ABCDEFGHIJKLMNOPQRSTUVWXYZ" },
+        { label: "Numbers", value: "0123456789" },
       ],
       pwHelperText: pwHints.selected,
-      isPwd: true
-    }
+      isPwd: true,
+    };
   },
   methods: {
-    generatePassword (str) {
+    generatePassword(str) {
       if (this.length > str.length) {
-        str = _.repeat(str.join(''), (Math.round(this.length / str.length) + 2))
+        str = _.repeat(str.join(""), Math.round(this.length / str.length) + 2);
       }
-      const fullLengthPass = _.shuffle(str)
-      const shortPass = fullLengthPass.slice(0, this.length)
-      this.password = shortPass.join('')
+      const fullLengthPass = _.shuffle(str);
+      const shortPass = fullLengthPass.slice(0, this.length);
+      this.password = shortPass.join("");
     },
-    copyPassword () {
+    copyPassword() {
       if (this.password.length === 0) {
-        this.pwHelperText = 'No password options selected'
-        return
+        this.pwHelperText = "No password options selected";
+        return;
       }
-      this.$refs.password.select()
-      document.execCommand('copy')
-      this.pwHelperText = 'Copied to clipboard!'
+      this.$refs.password.select();
+      document.execCommand("copy");
+      this.pwHelperText = "Copied to clipboard!";
     },
-    onReset () {
-      this.password = ''
-      this.selected = []
-      this.length = 12
-    }
-  }
-}
+    onReset() {
+      this.password = "";
+      this.selected = [];
+      this.length = 12;
+    },
+  },
+};
 </script>
