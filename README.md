@@ -10,6 +10,7 @@
 - New skin
 - Performance improvements
 - Upgrade to Quasar v2
+- https://quasar.dev/start/release-notes
 
 ## Official website
 
@@ -53,7 +54,7 @@ quasar build
 
 ### Customize the configuration
 
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
+See [Configuring quasar.config.js](https://quasar.dev/quasar-cli/quasar-conf-js).
 
 ### Browser and device testing sponsor
 
