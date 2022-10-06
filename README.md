@@ -5,6 +5,10 @@
 
 ## Whats new?
 
+- Static Site (https://www.genratr.com/)
+- UX fixes
+- New skin
+- Performance improvements
 - Upgrade to Quasar v2
 
 ## Official website
