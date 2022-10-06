@@ -1,6 +1,7 @@
 .DS_Store
 .thumbs.db
 node_modules
+yarn.lock
 
 # Quasar core related directories
 .quasar
@@ -31,3 +32,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+node_modules

@@ -1,59 +1,59 @@
 // app global css in SCSS form
-.align-center{
+.align-center {
   text-align: center;
 }
 
-.page{
-  padding:15px;
+.page {
+  padding: 15px;
   word-wrap: break-word;
-  &__wrap{
+  &__wrap {
     max-width: 540px;
-    position:relative;
-    margin:0 auto;
+    position: relative;
+    margin: 0 auto;
 
-    .header{
-      margin-bottom:30px;
-      img{
-        width:18%;
+    .header {
+      margin-bottom: 30px;
+      img {
+        width: 18%;
       }
-      h1{
+      h1 {
         font-size: 3em;
-        margin:5px 0;
+        margin: 5px 0;
       }
-      h3{
-        line-height:1.2;
-        margin:5px 0 45px 0;
+      h3 {
+        line-height: 1.2;
+        margin: 5px 0 45px 0;
         font-size: 1.5em;
       }
     }
 
     .col-12 {
-      margin-top:30px;
-      margin-bottom:30px;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
 
-    .password-field{
-      .q-field{
-        margin-bottom:30px;
+    .password-field {
+      .q-field {
+        margin-bottom: 30px;
         font-size: 16px;
       }
     }
 
-    .q-option-group{
-      div{
-        margin-left:0;
+    .q-option-group {
+      div {
+        margin-left: 0;
       }
-      .q-toggle__label{
+      .q-toggle__label {
         color: $dark;
       }
     }
-    .footer{
-      padding:30px 0 0 0;
+    .footer {
+      padding: 30px 0 0 0;
     }
 
-    .footer p{
-      font-size:10px;
-      color:#222;
+    .footer p {
+      font-size: 10px;
+      color: #222;
     }
   }
 }
