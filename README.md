@@ -1,61 +1,114 @@
 # Genratr
 
-> A simple and secure strong password generator
-> <img width="718" alt="Screen Shot 2021-02-22 at 4 26 43 pm" src="https://user-images.githubusercontent.com/6112201/108666345-fe45de00-752a-11eb-81de-5fcd697f6c66.png">
+**A simple and secure strong password generator.**
 
-## Whats new?
+<img width="496" alt="genratr-v4" src="https://github.com/user-attachments/assets/34944461-14d6-4cee-8174-b12cd3de63db">
 
-- Static Site (https://www.genratr.com/)
-- UX fixes
-- New skin
-- Performance improvements
-- Upgrade to Quasar v2
-- https://quasar.dev/start/release-notes
+## What's New?
 
-## Official website
+- **Monorepo** structure for Web, Android, and iOS platforms.
+- **UI Improvements** for a more intuitive experience.
+- **Save Passwords** directly in your notebook for future use.
+- **Performance Enhancements** for faster, smoother interactions.
+- **Upgraded to React Native** for cross-platform compatibility and responsiveness.
 
-<a href="https://www.genratr.com">https://www.genratr.com</a>
+## Official Website
 
-## Install the dependencies
+Visit the [Genratr website](https://genratr.com) to explore the app and its features.
+
+## Mobile App
+
+Under testing - Coming soon!
+
+## Installation
+
+Make sure to install all the dependencies using Yarn:
 
 ```bash
 yarn
-# or
-npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Development
+
+To run the app in development mode with hot-code reloading and error reporting:
 
 ```bash
-quasar dev
+yarn start
 ```
 
-### Lint the files
+Or start specifically for each platform:
+
+- **Start for Android:**
+
+  ```bash
+  yarn android
+  ```
+
+- **Start for iOS:**
+
+  ```bash
+  yarn ios
+  ```
+
+- **Start for Web:**
+
+  ```bash
+  yarn web
+  ```
+
+## Building the App
+
+To build the app for different platforms, use the following commands:
+
+- **Local Android APK Build:**
+
+  ```bash
+  yarn local-build:apk
+  ```
+
+- **Local Android AAB Build:**
+
+  ```bash
+  yarn local-build:aab
+  ```
+
+- **Local iOS IPA Build:**
+
+  ```bash
+  yarn local-build:ipa
+  ```
+
+- **Cloud Build for Android:**
+
+  ```bash
+  yarn cloud-build:android
+  ```
+
+- **Cloud Build for iOS:**
+
+  ```bash
+  yarn cloud-build:ios
+  ```
+
+- **Build for Web:**
+
+  ```bash
+  yarn build:web
+  ```
+
+## Prebuild
+
+For cleaning up and preparing a new build:
 
 ```bash
-yarn lint
-# or
-npm run lint
+yarn prebuild
 ```
 
-### Format the files
+## Browser and Device Testing Sponsor
 
-```bash
-yarn format
-# or
-npm run format
-```
+Testing across browsers and devices is supported by [BrowserStack](http://browserstack.com/).  
+![BrowserStack Logo](https://user-images.githubusercontent.com/6112201/55602201-28b01600-57b0-11e9-99c5-33e8e2dab268.png)
 
-### Build the app for production
+## License
 
-```bash
-quasar build
-```
-
-### Customize the configuration
-
-See [Configuring quasar.config.js](https://quasar.dev/quasar-cli/quasar-conf-js).
-
-### Browser and device testing sponsor
-
-<a target="_blank" href="http://browserstack.com/"><img width=200 src="https://user-images.githubusercontent.com/6112201/55602201-28b01600-57b0-11e9-99c5-33e8e2dab268.png" /></a>
+Genratr is licenced under the MIT licence.

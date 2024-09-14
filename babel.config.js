@@ -1,14 +1,20 @@
-/* eslint-disable */
-
 module.exports = (api) => {
+  api.cache(true);
   return {
-    presets: [
+    presets: [["babel-preset-expo", { jsxRuntime: "automatic" }]],
+    plugins: [
       [
-        "@quasar/babel-preset-app",
-        api.caller((caller) => caller && caller.target === "node")
-          ? { targets: { node: "current" } }
-          : {},
+        "@tamagui/babel-plugin",
+        {
+          components: ["tamagui"],
+          config: "./tamagui.config.ts",
+          logTimings: true,
+          disableExtraction: process.env.NODE_ENV === "development",
+        },
       ],
+
+      // NOTE: this is only necessary if you are using reanimated for animations
+      "react-native-reanimated/plugin",
     ],
   };
 };
