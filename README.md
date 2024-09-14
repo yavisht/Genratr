@@ -1,7 +1,8 @@
 # Genratr
 
-> **A simple and secure strong password generator.**  
-> ![Genratr Screenshot](https://user-images.githubusercontent.com/6112201/108666345-fe45de00-752a-11eb-81de-5fcd697f6c66.png)
+**A simple and secure strong password generator.**
+
+<img width="496" alt="genratr-v4" src="https://github.com/user-attachments/assets/34944461-14d6-4cee-8174-b12cd3de63db">
 
 ## What's New?
 
@@ -13,7 +14,7 @@
 
 ## Official Website
 
-Visit the [Genratr website](https://www.genratr.com) to explore the app and its features.
+Visit the [Genratr website](https://genratr.com) to explore the app and its features.
 
 ## Mobile App
 
