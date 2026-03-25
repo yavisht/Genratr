@@ -1,14 +1,9 @@
 {
   "cli": {
-    "version": ">= 12.3.0",
-    "appVersionSource": "local"
+    "version": ">= 18.4.0",
+    "appVersionSource": "remote"
   },
   "build": {
-    "apk": {
-      "android": {
-        "buildType": "apk"
-      }
-    },
     "development": {
       "developmentClient": true,
       "distribution": "internal"
@@ -17,13 +12,7 @@
       "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true,
-      "android": {
-        "autoIncrement": "version"
-      },
-      "ios": {
-        "autoIncrement": "buildNumber"
-      }
+      "autoIncrement": true
     }
   },
   "submit": {

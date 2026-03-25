@@ -6,11 +6,12 @@
 
 ## What's New?
 
-- **Monorepo** structure for Web, Android, and iOS platforms.
-- **UI Improvements** for a more intuitive experience.
-- **Save Passwords** directly in your notebook for future use.
-- **Performance Enhancements** for faster, smoother interactions.
-- **Upgraded to React Native** for cross-platform compatibility and responsiveness.
+- **Universal App** structure for Web, Android, and iOS platforms using Expo Router.
+- **Tamagui UI Improvements** for a completely responsive, modern, and intuitive experience with native Dark/Light Mode switching.
+- **Save Passwords** directly in your secure Notebook for future use.
+- **Hardware-Backed Encryption** via `expo-secure-store` to keep saved passwords military-grade on-device.
+- **Biometric Security** locks the Notebook behind Face ID / Touch ID using `expo-local-authentication`.
+- **Performance Enhancements** for faster, smoother interactions and Single Page App (SPA) static web routing setups.
 
 ## Official Website
 
@@ -22,10 +23,10 @@ Under testing - Coming soon!
 
 ## Installation
 
-Make sure to install all the dependencies using Yarn:
+Make sure to install all the dependencies using pnpm (which is currently orchestrating the workspace):
 
 ```bash
-yarn
+pnpm install
 ```
 
 ## Development
@@ -33,7 +34,7 @@ yarn
 To run the app in development mode with hot-code reloading and error reporting:
 
 ```bash
-yarn start
+pnpm start
 ```
 
 Or start specifically for each platform:
@@ -41,68 +42,45 @@ Or start specifically for each platform:
 - **Start for Android:**
 
   ```bash
-  yarn android
+  pnpm android
   ```
 
 - **Start for iOS:**
 
   ```bash
-  yarn ios
+  pnpm ios
   ```
 
 - **Start for Web:**
 
   ```bash
-  yarn web
+  pnpm web
   ```
 
 ## Building the App
 
-To build the app for different platforms, use the following commands:
+To natively compile or export the app for different platforms, use the following commands (`eas-cli` handles cloud or local builds):
 
-- **Local Android APK Build:**
+- **Local Android / iOS Build:**
 
   ```bash
-  yarn local-build:apk
+  npx eas-cli build -p android --local
+  npx eas-cli build -p ios --local
   ```
 
-- **Local Android AAB Build:**
+- **Cloud Build for Android / iOS:**
 
   ```bash
-  yarn local-build:aab
-  ```
-
-- **Local iOS IPA Build:**
-
-  ```bash
-  yarn local-build:ipa
-  ```
-
-- **Cloud Build for Android:**
-
-  ```bash
-  yarn cloud-build:android
-  ```
-
-- **Cloud Build for iOS:**
-
-  ```bash
-  yarn cloud-build:ios
+  npx eas-cli build -p android
+  npx eas-cli build -p ios
   ```
 
 - **Build for Web:**
+  *(Exports an optimized SPA into the `dist/` directory, along with a `200.html` fallback for hosts like Surge)*
 
   ```bash
-  yarn build:web
+  pnpm build:web
   ```
-
-## Prebuild
-
-For cleaning up and preparing a new build:
-
-```bash
-yarn prebuild
-```
 
 ## Browser and Device Testing Sponsor
 

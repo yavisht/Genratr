@@ -1,4 +1,4 @@
-import { Anchor, YStack, Text, styled, isWeb, Avatar } from "tamagui";
+import { Anchor, Avatar, Text, YStack, isWeb, styled } from "tamagui";
 
 const Container = styled(YStack, {
   flex: 1,
@@ -11,10 +11,10 @@ const Container = styled(YStack, {
 export default function ModalScreen() {
   return (
     <Container>
-      <YStack gap="$10" alignItems="center">
+      <YStack gap="$10">
         {/* Source Code Link */}
         <YStack gap="$2" alignItems="center">
-          <Text fontSize="$4" color="$colorText" fontWeight="bold">
+          <Text fontSize="$4" color="$color" fontWeight="bold" textAlign="center">
             Genratr will always be 100% Ad-Free and Open Source
           </Text>
           <Anchor
@@ -30,7 +30,7 @@ export default function ModalScreen() {
 
         {/* Creator Information */}
         <YStack gap="$2" alignItems="center">
-          <Text fontSize="$4" color="$colorText" fontWeight="bold" mb="$2">
+          <Text fontSize="$4" color="$color" fontWeight="bold" mb="$2">
             Made by
           </Text>
           <Anchor
@@ -46,11 +46,12 @@ export default function ModalScreen() {
               size="$10"
               mb="$3"
               borderStyle="solid"
+              borderWidth="$1"
               borderColor="$purple1"
             >
               <Avatar.Image
                 accessibilityLabel="yav.ai logo"
-                source={require("./../../assets/images/yavai.jpg")}
+                source={require("../assets/images/yav-ai-logo.jpg")}
               />
               <Avatar.Fallback backgroundColor="$background" />
             </Avatar>
@@ -59,9 +60,9 @@ export default function ModalScreen() {
 
         {/* Web Version Link */}
         <YStack gap="$2" alignItems="center">
-          <Text fontSize="$4" color="$colorText" fontWeight="bold">
+          <Text fontSize="$4" color="$color" fontWeight="bold">
             {isWeb
-              ? "Genratr Android App - Coming Soon"
+              ? "Genratr Mobile App - Coming Soon"
               : "Looking for the web version?"}
           </Text>
           {!isWeb ? (
